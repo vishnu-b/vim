@@ -1,6 +1,5 @@
 "Source plugin management file
 so ~/.vim/plugins.vim
-so ~/.vim/settings/folds/php.vim
 
 "Looks
 filetype on
@@ -96,14 +95,6 @@ nnoremap P P=`]<C-o>
 " Display tabs and trailing spaces visually
 set list listchars=tab:\ \ ,trail:·
 
-" Cleans the ui up
-set guioptions-=m  "remove menu bar
-set guioptions-=T  "remove toolbar
-set guioptions-=r  "remove right-hand scroll bar
-set guioptions-=R  "remove right-hand scroll bar
-set guioptions-=l  "remove left hand scrollbar
-set guioptions-=L  "remove left hand scrollbar
-
 " Quickly access the vim rc
 nmap <Leader>ev :tabedit ~/.vim/.vimrc<CR>
 nmap <Leader>pl :tabedit ~/.vim/plugins.vim<CR>
@@ -145,18 +136,8 @@ nnoremap <C-H> <C-W><C-H>
 
 "Plugins
 
-"CtrlP
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
-let g:ctrlp_custom_ignore = 'node_modules\DS_STORE\|git'
-let g:ctrlp_match_window = 'top,order:ttb,min:1,max:30,results:30'
+so ~/.vim/settings/php.vim
+so ~/.vim/settings/fzf.vim
 
 "Vinegar
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
@@ -169,35 +150,6 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 
-"php
-function! PhpSyntaxOverride()
-    hi! def link phpDocTags  phpDefine
-    hi! def link phpDocParam phpType
-endfunction
-
-augroup phpSyntaxOverride
-    autocmd!
-    autocmd FileType php call PhpSyntaxOverride()
-augroup END
-
-function! IPhpInsertUse()
-    call PhpInsertUse()
-        call feedkeys('a',  'n')
-    endfunction
-autocmd FileType php inoremap <Leader>n <Esc>:call IPhpInsertUse()<CR>
-autocmd FileType php noremap <Leader>n :call PhpInsertUse()<CR>
-
-function! IPhpExpandClass()
-    call PhpExpandClass()
-    call feedkeys('a', 'n')
-endfunction
-autocmd FileType php inoremap <Leader>nf <Esc>:call IPhpExpandClass()<CR>
-autocmd FileType php noremap <Leader>nf :call PhpExpandClass()<CR>
-
-" pdv
-let g:pdv_template_dir = $HOME ."~/.vim/plugged/pdv/templates_snip"
-nnoremap <Leader>d :call pdv#DocumentWithSnip()<CR>
-
 
 " Ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -206,12 +158,9 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsSnippetsDir = "~/.vim/plugged/ultisnips/UltiSnips"
 let g:UltiSnipsEditSplit="vertical"
 
-
 " Folding
 set foldlevelstart=1
 set foldmethod=indent
 set foldnestmax=10
-
-so ~/.vim/settings/fzf.vim
 
 set belloff=all

@@ -2,18 +2,17 @@
 so ~/.vim/plugins.vim
 so ~/.vim/settings/folds/php.vim
 
-
 "Looks
 filetype on
 syntax on
-colorscheme base16-onedark
-set guifont=Monaco:h13
-set colorcolumn=80
+colorscheme gruvbox
 set number
 set relativenumber
 set noshowmode
+
+set guifont=Source\ Code\ Variable\ 9
 "set ruler
-set linespace=12
+set linespace=10
 set guioptions-=e
 set background=dark     "Setting dark mode
 
@@ -22,18 +21,10 @@ let g:mapleader=","
 set hidden
 set history=500
 
-set cursorline          " highlight current line
-
-" move vertically by visual line
-nnoremap j gj
-nnoremap k gk
 
 " move to beginning/end of line
 nnoremap B ^
 nnoremap E $
-
-" highlight last inserted text
-nnoremap gV `[v`]
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
@@ -44,10 +35,6 @@ set novisualbell
 set t_vb=
 set tm=500
 
-" Properly disable sound on errors on MacVim
-if has("gui_macvim")
-    autocmd GUIEnter * set vb t_vb=
-endif
 
 " Move a line of text using ALT+[jk] or Command+[jk] on mac
 nmap <M-j> mz:m+<cr>`z
@@ -174,18 +161,6 @@ let g:ctrlp_match_window = 'top,order:ttb,min:1,max:30,results:30'
 "Vinegar
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-nmap <Leader>p :CtrlP<CR>
-
-" Set no max file limit
-let g:ctrlp_max_files = 0
-" Search from current directory instead of project root
-let g:ctrlp_working_path_mode = 0
-
-" buffer through the tags in the file
-nmap <C-R> :CtrlPBufTag<cr>
-nmap <C-E> :CtrlPMRUFiles<cr>
-
 
 "SuperTab
 let g:SuperTabDefaultCompletionType = "<c-n>"
@@ -220,7 +195,7 @@ autocmd FileType php inoremap <Leader>nf <Esc>:call IPhpExpandClass()<CR>
 autocmd FileType php noremap <Leader>nf :call PhpExpandClass()<CR>
 
 " pdv
-let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
+let g:pdv_template_dir = $HOME ."~/.vim/plugged/pdv/templates_snip"
 nnoremap <Leader>d :call pdv#DocumentWithSnip()<CR>
 
 
@@ -228,13 +203,15 @@ nnoremap <Leader>d :call pdv#DocumentWithSnip()<CR>
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsSnippetsDir = "~/.vim/bundle/ultisnips/UltiSnips"
+let g:UltiSnipsSnippetsDir = "~/.vim/plugged/ultisnips/UltiSnips"
 let g:UltiSnipsEditSplit="vertical"
 
-"Python
-let python_highlight_all = 1
 
 " Folding
 set foldlevelstart=1
 set foldmethod=indent
 set foldnestmax=10
+
+so ~/.vim/settings/fzf.vim
+
+set belloff=all

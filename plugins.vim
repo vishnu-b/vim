@@ -1,30 +1,28 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-set rtp+=~/.vim/bundle/Vundle.vim
 
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'ervandew/supertab'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-surround'
-Plugin 'pangloss/vim-javascript'
-Plugin 'StanAngeloff/php.vim'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'tpope/vim-vinegar'
-Plugin 'arnaud-lb/vim-php-namespace'
-Plugin 'tobyS/pdv'
-Plugin 'jceb/vim-orgmode'
-Plugin 'morhetz/gruvbox'
-Plugin 'chriskempson/base16-vim'
-Plugin 'hdima/python-syntax'
-Plugin 'tobyS/vmustache'
-Plugin 'SirVer/ultisnips'
+Plug 'scrooloose/nerdcommenter'
+Plug 'ervandew/supertab'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'pangloss/vim-javascript'
+Plug 'StanAngeloff/php.vim'
+Plug 'tpope/vim-vinegar'
+Plug 'arnaud-lb/vim-php-namespace'
+Plug 'tobyS/pdv'
+Plug 'morhetz/gruvbox'
+Plug 'chriskempson/base16-vim'
+Plug 'tobyS/vmustache'
+Plug 'SirVer/ultisnips'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
-call vundle#end()            " required
+call plug#end()
 filetype plugin indent on    " required
+
+
+

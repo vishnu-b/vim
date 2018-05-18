@@ -20,6 +20,8 @@ Plug 'tobyS/vmustache'
 Plug 'SirVer/ultisnips'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'neomake/neomake'
+Plug 'scrooloose/nerdtree'
 
 call plug#end()
 filetype plugin indent on    " required

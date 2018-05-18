@@ -5,3 +5,6 @@ set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=R  "remove right-hand scroll bar
 set guioptions-=l  "remove left hand scrollbar
 set guioptions-=L  "remove left hand scrollbar
+
+set linespace=12
+set guioptions-=e

@@ -9,11 +9,11 @@ set number
 set relativenumber
 set noshowmode
 
-set guifont=Source\ Code\ Variable\ 9
-"set ruler
-set linespace=10
-set guioptions-=e
+set guifont=IBM\ Plex\ Mono\ 9
 set background=dark     "Setting dark mode
+
+" Always show the status line
+set laststatus=2
 
 let mapleader=","
 let g:mapleader=","
@@ -27,6 +27,7 @@ nnoremap E $
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
 
 " No annoying sound on errors
 set noerrorbells
@@ -73,10 +74,11 @@ set nobackup
 set nowb
 set noswapfile
 
-"Indentaion
-filetype indent on
+" Enable filetype plugins
 filetype plugin on
-filetype indent plugin on
+filetype indent on
+
+"Indentaion
 set expandtab "Use spaces instead of tabs
 set smarttab
 set shiftwidth=4
@@ -87,6 +89,9 @@ set ai "Auto indent
 set si "Smart Indent
 set nowrap "Don't wrap Lines
 set linebreak    "Wrap lines at convenient points
+
+" Set 7 lines to the cursor - when moving vertically using j/k
+set so=5
 
 " Auto indent pasted text
 nnoremap p p=`]<C-o>
@@ -142,6 +147,9 @@ so ~/.vim/settings/fzf.vim
 "Vinegar
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
+"NerdTree
+map <C-k><C-b> :NERDTreeToggle<CR>
+let NERDTreeHijackNetrw = 0
 
 "SuperTab
 let g:SuperTabDefaultCompletionType = "<c-n>"
@@ -150,7 +158,6 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 
-
 " Ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -158,9 +165,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsSnippetsDir = "~/.vim/plugged/ultisnips/UltiSnips"
 let g:UltiSnipsEditSplit="vertical"
 
-" Folding
-set foldlevelstart=1
-set foldmethod=indent
-set foldnestmax=10
-
+"PHP_CS_FIXER
+nmap <Leader>fix :!php-cs-fixer fix --config=/home/vishnub/.vim/.php_cs '%:p'
 set belloff=all
+
+let g:neomake_php_phpcs_args_standard = 'PSR2'

@@ -9,7 +9,7 @@ set number
 set relativenumber
 set noshowmode
 
-set guifont=IBM\ Plex\ Mono\ 9
+set guifont=Fira\ Code\ Normal\ 9
 set background=dark     "Setting dark mode
 
 " Always show the status line
@@ -165,8 +165,17 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsSnippetsDir = "~/.vim/plugged/ultisnips/UltiSnips"
 let g:UltiSnipsEditSplit="vertical"
 
+" Goyo
+let g:goyo_width=120
+let g:goyo_height="95%"
+nmap <Leader>zen :Goyo<CR>
+
 "PHP_CS_FIXER
-nmap <Leader>fix :!php-cs-fixer fix --config=/home/vishnub/.vim/.php_cs '%:p'
+nmap <Leader>fix :!php-cs-fixer fix --config=/home/vishnub/.vim/.php_cs '%:p'<CR>
 set belloff=all
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
 
 let g:neomake_php_phpcs_args_standard = 'PSR2'

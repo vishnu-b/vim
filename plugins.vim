@@ -22,9 +22,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'neomake/neomake'
 Plug 'scrooloose/nerdtree'
+Plug 'junegunn/goyo.vim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 filetype plugin indent on    " required
-
-
 

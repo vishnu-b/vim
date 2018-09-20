@@ -4,22 +4,19 @@ so ~/.vim/plugins.vim
 "Looks
 filetype on
 syntax on
-colorscheme gruvbox
+colorscheme onedark
 set number
 set relativenumber
 set noshowmode
 
-set guifont=Fira\ Code\ Normal\ 9
+set guifont=Source\ Code\ Variable\ 10.5
 set background=dark     "Setting dark mode
 
 " Always show the status line
-set laststatus=2
-
 let mapleader=","
 let g:mapleader=","
 set hidden
 set history=500
-
 
 " move to beginning/end of line
 nnoremap B ^
@@ -34,7 +31,7 @@ set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
-
+set belloff=all
 
 " Move a line of text using ALT+[jk] or Command+[jk] on mac
 nmap <M-j> mz:m+<cr>`z
@@ -90,7 +87,7 @@ set si "Smart Indent
 set nowrap "Don't wrap Lines
 set linebreak    "Wrap lines at convenient points
 
-" Set 7 lines to the cursor - when moving vertically using j/k
+" Set 5 lines to the cursor - when moving vertically using j/k
 set so=5
 
 " Auto indent pasted text
@@ -138,7 +135,6 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-
 "Plugins
 
 so ~/.vim/settings/php.vim
@@ -158,6 +154,16 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 
+"PHP_CS_FIXER
+nmap <Leader>fix :!php-cs-fixer fix --config=/home/vishnub/.vim/.php_cs '%:p'<CR>
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+" Ale
+let g:ale_php_phpcs_standard="PSR2"
+
 " Ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -165,17 +171,5 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsSnippetsDir = "~/.vim/plugged/ultisnips/UltiSnips"
 let g:UltiSnipsEditSplit="vertical"
 
-" Goyo
-let g:goyo_width=120
-let g:goyo_height="95%"
-nmap <Leader>zen :Goyo<CR>
-
-"PHP_CS_FIXER
-nmap <Leader>fix :!php-cs-fixer fix --config=/home/vishnub/.vim/.php_cs '%:p'<CR>
-set belloff=all
-
-" Enable folding
-set foldmethod=indent
-set foldlevel=99
-
-let g:neomake_php_phpcs_args_standard = 'PSR2'
+let g:phpcomplete_index_composer_command = "composer"
+autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP

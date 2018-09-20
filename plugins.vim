@@ -14,16 +14,15 @@ Plug 'StanAngeloff/php.vim'
 Plug 'tpope/vim-vinegar'
 Plug 'arnaud-lb/vim-php-namespace'
 Plug 'tobyS/pdv'
-Plug 'morhetz/gruvbox'
-Plug 'chriskempson/base16-vim'
-Plug 'tobyS/vmustache'
 Plug 'SirVer/ultisnips'
+Plug 'morhetz/gruvbox'
+Plug 'tobyS/vmustache'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'neomake/neomake'
 Plug 'scrooloose/nerdtree'
-Plug 'junegunn/goyo.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'joshdick/onedark.vim'
+Plug 'shawncplus/phpcomplete.vim'
 
 call plug#end()
 filetype plugin indent on    " required

@@ -23,6 +23,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'joshdick/onedark.vim'
 Plug 'shawncplus/phpcomplete.vim'
+Plug 'tyru/current-func-info.vim'
 
 call plug#end()
 filetype plugin indent on    " required

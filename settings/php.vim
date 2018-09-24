@@ -25,3 +25,16 @@ autocmd FileType php noremap <Leader>nf :call PhpExpandClass()<CR>
 " pdv
 let g:pdv_template_dir = $HOME ."/.vim/plugged/pdv/templates_snip"
 autocmd FileType php nnoremap <Leader>d :call pdv#DocumentWithSnip()<CR>
+
+"phpunit
+function! RunPHPUnitTestForFunction()
+    let result = system("./vendor/bin/phpunit --filter " . cfi#get_func_name() . " " . bufname("%"))
+    echo result
+endfunction
+function! RunPHPUnitTestForClass()
+    let result = system("./vendor/bin/phpunit " . bufname("%"))
+    echo result
+endfunction
+"autocmd FileType php nnoremap <Leader>tt :exe !phpunit --filter cfi#get_func_name()
+autocmd FileType php nnoremap <Leader>tf :call RunPHPUnitTestForFunction()<CR>
+autocmd FileType php nnoremap <Leader>tc :call RunPHPUnitTestForClass()<CR>
